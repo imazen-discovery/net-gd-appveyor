@@ -70,6 +70,8 @@ install:
   - cinst mingw-get
   - cinst git
   - mingw-get install mingw-developer-toolkit
+  - set PATH=%PATH%;C:\MinGW\msys\1.0\bin
+  - bash -c "echo 'bash up'"
 
   # by default, all script lines are interpreted as batch
   # - echo This is batch
