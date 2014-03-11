@@ -14,6 +14,7 @@ branches:
   # whitelist
   only:
     - master
+    - private-dev
 
 #---------------------------------#
 #    environment configuration    #
@@ -167,7 +168,7 @@ test_script:
 #      artifacts configuration    #
 #---------------------------------#
 
-artifacts:
+# artifacts:
 
   # # pushing a single file
   # - path: test.zip
