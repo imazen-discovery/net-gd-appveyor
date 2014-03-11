@@ -70,8 +70,8 @@ clone_folder: c:\projects\net-gd-appveyor
 install:
   - cinst mingw-get
   - cinst git
+  - set PATH=%PATH%;C:\MinGW\msys\1.0\bin;C:\MinGW\bin
   - mingw-get install mingw-developer-toolkit
-  - set PATH=%PATH%;C:\MinGW\msys\1.0\bin
   - bash -c "echo 'bash up'"
 
   # by default, all script lines are interpreted as batch
@@ -118,6 +118,7 @@ build:
 
 # scripts to run before build
 before_build:
+  - C:\MinGW\msys\1.0\bin\bash before-build.sh
 
 # scripts to run after build
 after_build:
