@@ -14,7 +14,6 @@ branches:
   # whitelist
   only:
     - master
-    - private-dev
 
 #---------------------------------#
 #    environment configuration    #
@@ -72,7 +71,10 @@ install:
   - cinst git
   - set PATH=%PATH%;C:\MinGW\msys\1.0\bin;C:\MinGW\bin
   - mingw-get install mingw-developer-toolkit
-  - bash -c "echo 'bash up'"
+  - mingw-get install msys-zip
+  - mingw-get install msys-unzip
+
+#  - mingw-get install msys-libiconv
 
   # by default, all script lines are interpreted as batch
   # - echo This is batch
@@ -110,21 +112,21 @@ configuration: Debug
 #  - Debug
 #  - Release
 
-build:
-  # project: MyTestAzureCS.sln      # path to Visual Studio solution or project
-  # publish_azure: true             # package Azure Cloud Service projects and push to artifacts
-  # publish_wap: true               # package Web Application Projects (WAP) and push to artifacts
-  # publish_nuget: true             # package projects with .nuspec files and push to artifacts
+# build:
+#   # project: MyTestAzureCS.sln      # path to Visual Studio solution or project
+#   # publish_azure: true             # package Azure Cloud Service projects and push to artifacts
+#   # publish_wap: true               # package Web Application Projects (WAP) and push to artifacts
+#   # publish_nuget: true             # package projects with .nuspec files and push to artifacts
 
 # scripts to run before build
 before_build:
-  - C:\MinGW\msys\1.0\bin\bash before-build.sh
+  - before-build.sh
 
 # scripts to run after build
 after_build:
 
 # to run your custom scripts instead of automatic MSBuild
-build_script:
+build_script: do-build.sh
 
 # to disable automatic builds
 #build: off
@@ -133,14 +135,14 @@ build_script:
 #       tests configuration       #
 #---------------------------------#
 
-test:
-  assemblies:
-    - asm1.dll
-    - asm2.dll
+# test:
+#   assemblies:
+#     - asm1.dll
+#     - asm2.dll
 
-  categories:
-    - UI
-    - E2E
+#   categories:
+#     - UI
+#     - E2E
 
 # to run tests from different categories as separate jobs in parallel
 #test:
@@ -150,16 +152,16 @@ test:
 #    - [DAL, BL]    # 2nd job
 
 # scripts to run before tests
-before_test:
-  - echo script1
-  - ps: Write-Host "script1"
+# before_test:
+#   - echo script1
+#   - ps: Write-Host "script1"
 
 # scripts to run after tests
 after_test:
 
 # to run your custom scripts instead of automatic tests
 test_script:
-  - echo This is my custom test script
+  - bash do-tests.sh
 
 # to disable automatic tests 
 #test: off
@@ -169,7 +171,9 @@ test_script:
 #      artifacts configuration    #
 #---------------------------------#
 
-# artifacts:
+artifacts:
+  - path: gd-libgd/libgd-win.zip
+  - path: net-gd/net-gd.zip
 
   # # pushing a single file
   # - path: test.zip

@@ -1,0 +1,7 @@
+
+# Since this is expected to run under Windows only, we force the
+# relevant files to crlf.  (This lets us use *nix-based tools to work on
+# these files.
+
+*.sh    eol=crlf
+*.yml   eol=crlf
