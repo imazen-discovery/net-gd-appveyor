@@ -240,8 +240,8 @@ on_failure:
   # - do something
 
 # webhooks
-#notifications:
-  # webhooks:
+notifications:
+  webhooks:
   #   - url: http://www.myhook.com
   #     events: build_success
   #   - url: http://www.myhook2.com
