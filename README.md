@@ -10,4 +10,8 @@ AppVeyor is geared toward Visual Studio projects (which these are not)
 and common testing frameworks (which GD does not use).  Instead, we
 build everything with Msys and (where possible) MinGW.  In addition,
 net-gd depends on the libs built from the gd-libgd source tree and the
-whole thing requires 
+whole thing requires a bunch of extra files.
+
+This repo sets up the environment in AppVeyor, checks out gd-libgd and
+net-gd, then builds and tests them both.
+
