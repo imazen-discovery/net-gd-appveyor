@@ -13,7 +13,7 @@ git clone $REPO/net-gd.git
 
 # Install third party stuff from a tarball.  TODO: switch to using
 # chocolatey for this, since it's all there.
-pushd /c/
-zcat $PROJROOT/files/tools.tar.gz | tar xvf -
-popd
+cd /c/
+zcat $PROJROOT/files/tools.tar.gz | tar xf -
+cd $PROJROOT
 
