@@ -12,6 +12,6 @@ if [ ! -f appveyor.yml ]; then
     exit 1
 fi
 
-[ -d gd-libgd] && rm -rf gd-libgd
+[ -d gd-libgd ] && rm -rf gd-libgd
 [ -d net-gd ] && rm -rf net-gd
 
