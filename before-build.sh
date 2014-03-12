@@ -4,8 +4,8 @@ set -e
 
 PROJROOT=`pwd`
 
-#REPO=https://github.com/imazen-discovery
-REPO=/z/repos     # Use a local copy for testing.
+REPO=https://github.com/imazen-discovery
+#REPO=/z/repos     # Use a local copy for testing.
 
 # clone the repos
 git clone $REPO/gd-libgd.git
